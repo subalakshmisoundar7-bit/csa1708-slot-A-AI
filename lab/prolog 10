@@ -1,0 +1,38 @@
+% Monkey and Banana Problem
+
+% Initial state: monkey at door, box at window
+initial(state(door, window, floor, no)).
+
+% Goal state
+goal(state(_, _, _, yes)).
+
+% Walk
+move(state(P1, B, floor, no),
+     state(P2, B, floor, no),
+     walk) :-
+    P1 \= B,
+    P1 \= P2.
+
+% Push box
+move(state(P, P, floor, no),
+     state(B, B, floor, no),
+     push) :-
+    P \= B.
+
+% Climb box
+move(state(P, P, floor, no),
+     state(P, P, onbox, no),
+     climb).
+
+% Grasp banana
+move(state(middle, middle, onbox, no),
+     state(middle, middle, onbox, yes),
+     grasp).
+
+% Solve the problem
+solve(State, []) :-
+    goal(State).
+
+solve(State, [Action|Rest]) :-
+    move(State, NextState, Action),
+    solve(NextState, Rest).
