@@ -1,0 +1,15 @@
+% Planet Database
+
+planet(mercury, small, rocky).
+planet(venus, small, rocky).
+planet(earth, medium, rocky).
+planet(mars, small, rocky).
+planet(jupiter, large, gaseous).
+planet(saturn, large, gaseous).
+planet(uranus, large, gaseous).
+planet(neptune, large, gaseous).
+
+% Rules
+rocky_planet(X) :- planet(X, _, rocky).
+gas_planet(X) :- planet(X, _, gaseous).
+large_planet(X) :- planet(X, large, _).
