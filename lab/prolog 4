@@ -1,0 +1,25 @@
+% Student database
+student(subalakshmi, 246).
+student(anu, 101).
+student(raju, 102).
+
+% Teacher database
+teacher(sivagami, t01).
+teacher(devapriya, t02).
+
+% Subject database
+subject(ai, sub01).
+subject(cn, sub02).
+subject(prolog, sub03).
+
+% Teaching relationship
+teaches(sivagami, ai).
+teaches(devapriya, cn).
+teaches(sivagami, prolog).
+
+% Query rules
+student_details(Name, Reg) :-
+    student(Name, Reg).
+
+teacher_subject(Teacher, Subject) :-
+    teaches(Teacher, Subject).
