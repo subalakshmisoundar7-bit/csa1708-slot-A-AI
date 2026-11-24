@@ -1,0 +1,20 @@
+fact(fever).
+fact(cough).
+
+rule(flu, [fever, cough]).
+rule(cold, [cough]).
+
+check([]).
+
+check([H|T]) :-
+    fact(H),
+    check(T).
+
+forward :-
+    rule(Disease, Symptoms),
+    check(Symptoms),
+    write(Disease),
+    nl,
+    fail.
+
+forward.
