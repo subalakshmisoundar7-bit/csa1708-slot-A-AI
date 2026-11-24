@@ -1,0 +1,11 @@
+symptom(fever).
+symptom(cough).
+symptom(headache).
+
+diagnosis(flu) :-
+    symptom(fever),
+    symptom(cough),
+    symptom(headache).
+
+diagnosis(cold) :-
+    symptom(cough).
